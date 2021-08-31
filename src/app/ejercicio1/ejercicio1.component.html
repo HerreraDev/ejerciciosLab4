@@ -9,12 +9,13 @@
 <div>
   <input type="button" value="Calcular" (click)="calcular()">
   <input type="button" value="Limpiar" (click)="limpiar()">
-  <a routerLink="/home">Back home</a>
+  <a class="btnlink" routerLink="/home">Back home</a>
 </div>
 <br>
 <div>
   <label for="prom">Promedio:</label>
   <input type="text" [(ngModel)]="prom">
+  <br>
   <label for="sum">Suma:</label>
   <input type="text" [(ngModel)]="suma">
 </div>

@@ -45,6 +45,10 @@ const rutas: Routes = [
   {
     path:'ej2/bienvenido',
     component: BienvenidoComponent
+  },
+  {
+    path:'ej2/error',
+    component: ErrorComponent
   }
 ];
 

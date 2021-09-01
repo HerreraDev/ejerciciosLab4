@@ -1,9 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../clases/usuario';
 import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
 import { collection, getDocs } from '@firebase/firestore';
 import { QuerySnapshot } from '@firebase/firestore-types';
 import { observable, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,20 +12,9 @@ import { observable, Observable } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private firestore: AngularFirestore) {
+  constructor(private firestore: AngularFirestore, private router: Router) {
     //let student = new Usuario('','');
    }
-
-  users = [
-    {
-      user:'graxman',
-      pass:'1234'
-    },
-    {
-      user:'jose',
-      pass:'1234'
-    }
-  ]
 
   usuario='';
   contrasenia='';
@@ -57,14 +47,14 @@ export class LoginComponent implements OnInit {
   //   }
   // }
   login(){
-    this.student = new Usuario('','');
-    this.student.nombre = this.usuario;
-    this.student.clave = this.contrasenia;
+    // this.student = new Usuario('','');
+    // this.student.nombre = this.usuario;
+    // this.student.clave = this.contrasenia;
     
-    this.firestore.collection("usuarios").add({
-      nombre: this.student.nombre,
-      clave: this.student.clave
-    });
+    // this.firestore.collection("usuarios").add({
+    //   nombre: this.student.nombre,
+    //   clave: this.student.clave
+    // });
 
     ///////////////////////////////
     var user: Usuario;
@@ -72,14 +62,23 @@ export class LoginComponent implements OnInit {
     let userRef = this.firestore.collection("usuarios").ref;
 
     userRef.get().then(res => res.forEach(userDoc => {
-
       user = userDoc.data() as Usuario; // since email IDs are unique, I want the 0th element.
-      
-     // has the data
-
-      // return user; // doesn't work, not the right thing
-      console.log(user);
+        if(this.usuario == user.nombre){
+          if(this.contrasenia == user.clave){
+            this.router.navigateByUrl('/ej2/bienvenido');
+            console.log("v");
+            return 1;
+          }
+        }
+        else{
+          this.router.navigateByUrl('ej2/error');
+          console.log("f");
+          return 0;
+        }
+        return -1;
     }))
+
+
   }
 
   ngOnInit(): void {

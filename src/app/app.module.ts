@@ -17,6 +17,11 @@ import { AngularFireModule } from '@angular/fire/compat';
 //import { AngularFireDatabaseModule } from '@angular/fire/compat/database/angular-fire-compat-database';
 import { environment } from '../environments/environment';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { QuienSoyComponent } from './salonDeJuegos/componentes/quien-soy/quien-soy.component';
+import { HomeGamesComponent} from './salonDeJuegos/componentes/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginGamesComponent } from './salonDeJuegos/componentes/login/login.component';
+import { HeaderComponent } from './salonDeJuegos/componentes/header/header.component';
 
 const rutas: Routes = [
   {
@@ -49,6 +54,14 @@ const rutas: Routes = [
   {
     path:'ej2/error',
     component: ErrorComponent
+  },
+  {
+    path:'salonDeJuegos/home',
+    component: HomeGamesComponent
+  },
+  {
+    path:'salonDeJuegos/quienSoy',
+    component: QuienSoyComponent
   }
 ];
 
@@ -60,14 +73,20 @@ const rutas: Routes = [
     HomeComponent,
     LoginComponent,
     BienvenidoComponent,
-    ErrorComponent
+    ErrorComponent,
+    QuienSoyComponent,
+    LoginGamesComponent,
+    HomeGamesComponent,
+    HeaderComponent,
+    QuienSoyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot(rutas),
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

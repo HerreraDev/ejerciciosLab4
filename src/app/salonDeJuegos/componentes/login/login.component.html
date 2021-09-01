@@ -1,0 +1,23 @@
+
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="active"> Inicio de sesion </h2>  
+        <!-- Icon -->
+    
+        <!-- Login Form -->
+        <form>
+          <input [(ngModel)]="usuario" type="text" id="login" class="fadeIn second" name="loginUs" placeholder="Usuario" required>
+          <input [(ngModel)]="contrasenia" type="text" id="password" class="fadeIn third" name="loginPas" placeholder="Contraseña" required>
+          <input (click)="login()" type="submit" class="fadeIn fourth" value="Ingresa">
+        </form>
+    
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+          <a class="underlineHover" href="salonDeJuegos/home">Crear cuenta</a>
+          <a *ngIf="fallo">Datos incorrectos</a>
+        </div>
+      </div>
+    </div>
+
+  

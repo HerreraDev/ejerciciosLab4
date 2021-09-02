@@ -7,8 +7,8 @@
     
         <!-- Login Form -->
         <form>
-          <input [(ngModel)]="usuario" type="text" id="login" class="fadeIn second" name="loginUs" placeholder="Usuario" required>
-          <input [(ngModel)]="contrasenia" type="text" id="password" class="fadeIn third" name="loginPas" placeholder="Contraseña" required>
+          <input [(ngModel)]="usuario" type="email" id="login" class="fadeIn second" name="loginUs" placeholder="Usuario" required>
+          <input [(ngModel)]="contrasenia" type="password" id="password" class="fadeIn third" name="loginPas" placeholder="Contraseña" required>
           <input (click)="login()" type="submit" class="fadeIn fourth" value="Ingresa">
         </form>
     
@@ -16,7 +16,7 @@
         <div id="formFooter">
           <a class="underlineHover" href="salonDeJuegos/home">Crear cuenta</a>
           <div *ngIf="fallo" class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <span class="closebtn" (click)="fallo=false" onclick="this.parentElement.style.display='none';">&times;</span>
             Error, usuario inexistente o datos incorrectos.
           </div>
         </div>

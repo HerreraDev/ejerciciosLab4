@@ -11,9 +11,20 @@ export class HomeGamesComponent implements OnInit {
   constructor() { }
 
   deslogueado:boolean = true;
+  lista:string = '';
 
-  ngOnInit(): void {
- 
+  test(){
+   this.lista = localStorage.getItem('usuario') || "";
+   if(this.lista!=null || this.lista!=undefined){
+      this.deslogueado = true;
+   }
+   else{
+     this.deslogueado = false;
+   }
   }
+  
+ ngOnInit(): void {
+   this.test();
+ }
 
 }

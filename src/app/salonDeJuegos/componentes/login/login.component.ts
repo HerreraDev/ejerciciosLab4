@@ -23,19 +23,6 @@ export class LoginGamesComponent implements OnInit {
 
   async login(){
     var usersArray:Array<Usuario> = await this.getUsers();
-        
-    //usuario='asd'
-    //pass='44'
-    var user = [
-    {
-      nombre:'juan',
-      clave:'1234'
-    },
-    {
-      nombre:'vero',
-      clave:'2222'
-    }
-    ]
 
     var found=0;
     for(var i=0; i<usersArray.length;i++){
@@ -71,7 +58,7 @@ export class LoginGamesComponent implements OnInit {
   };
 
   succes(user:Usuario){
-      localStorage.setItem('lista', JSON.stringify(user));
+      localStorage.setItem('usuario',user.nombre);
       this.router.navigateByUrl('salonDeJuegos/quienSoy');
     }
   ngOnInit(): void {

@@ -14,15 +14,18 @@ export class QuienSoyComponent implements OnInit {
    }
    
    lista:string = '';
-
+   name='';
+   user = {name:''};
    test(){
-    this.lista = localStorage.getItem('lista') || "";
-    console.log(JSON.parse(this.lista));
-    
+    this.lista = localStorage.getItem('usuario') || "";
+    this.user.name = (this.lista);
    }
-   
+   clearStorage(){
+     localStorage.clear();
+   }
   ngOnInit(): void {
     this.test();
+    this.name=this.user.name;
   }
 
 }

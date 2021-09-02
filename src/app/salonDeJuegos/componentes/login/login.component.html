@@ -15,7 +15,10 @@
         <!-- Remind Passowrd -->
         <div id="formFooter">
           <a class="underlineHover" href="salonDeJuegos/home">Crear cuenta</a>
-          <a *ngIf="fallo">Datos incorrectos</a>
+          <div *ngIf="fallo" class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Error, usuario inexistente o datos incorrectos.
+          </div>
         </div>
       </div>
     </div>

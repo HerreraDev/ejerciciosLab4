@@ -1,0 +1,32 @@
+<body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="active"> Registro de usuario </h2>  
+        <!-- Icon -->
+    
+        <!-- Login Form -->
+        <form>
+            <input [(ngModel)]="mail" type="text" id="email" class="fadeIn second" name="loginUs" placeholder="Mail" required>
+            <input [(ngModel)]="nombre" type="text" id="nombre" class="fadeIn third" name="loginPas" placeholder="Usuario" required>
+            <input [(ngModel)]="contrasenia" type="text" id="contras" class="fadeIn third" name="loginPas" placeholder="Contraseña" required>
+
+          <input (click)="registro()" type="submit" class="fadeIn fourth" value="Registrarse">
+        </form>
+    
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+          <a class="underlineHover" href="salonDeJuegos/login">Iniciar sesion</a>
+          <div>
+  
+          </div>
+          <div *ngIf="fallo" class="alert">
+            <span class="closebtn" (click)="fallo=false" onclick="this.parentElement.style.display='none';">&times;</span>
+            Posibles errores: email sin @, campos incompletos o usuario ya registrado.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+    

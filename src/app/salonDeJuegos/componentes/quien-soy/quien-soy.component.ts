@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from '../../clases/usuario.model';
+import { UsuarioService } from '../../servicios/usuario.service';
 
 @Component({
   selector: 'app-quien-soy',
@@ -9,23 +11,19 @@ import { Usuario } from '../../clases/usuario.model';
 })
 export class QuienSoyComponent implements OnInit {
 
-  constructor() {
-
+  constructor(private userService:UsuarioService,
+    private router:Router) {
+    this.name = userService.usuario.nombre;
+    this.mail = userService.usuario.mail;
    }
    
-   lista:string = '';
    name='';
-   user = {name:''};
-   test(){
-    this.lista = localStorage.getItem('usuario') || "";
-    this.user.name = (this.lista);
-   }
-   clearStorage(){
-     localStorage.clear();
+   mail='';
+
+   logout(){
+    this.router.navigateByUrl('');
    }
   ngOnInit(): void {
-    this.test();
-    this.name=this.user.name;
   }
 
 }

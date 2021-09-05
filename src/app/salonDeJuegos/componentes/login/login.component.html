@@ -1,26 +1,32 @@
+<body>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <h2 class="active"> Inicio de sesion </h2>  
+      <!-- Icon -->
+  
+      <!-- Login Form -->
+      <form>
+        <input [(ngModel)]="usuario" type="email" id="login" class="fadeIn second" name="loginUs" placeholder="Usuario" required>
+        <input [(ngModel)]="contrasenia" type="password" id="password" class="fadeIn third" name="loginPas" placeholder="Contraseña" required>
+        <input (click)="login()" type="submit" class="fadeIn fourth" value="Ingresa">
+        <input (click)="loginAdmin()" type="button" value="Admin">
+        <input (click)="loginTester()" type="button" value="Tester">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="salonDeJuegos/registro">Crear cuenta</a>
+        <div>
 
-    <div class="wrapper fadeInDown">
-      <div id="formContent">
-        <!-- Tabs Titles -->
-        <h2 class="active"> Inicio de sesion </h2>  
-        <!-- Icon -->
-    
-        <!-- Login Form -->
-        <form>
-          <input [(ngModel)]="usuario" type="email" id="login" class="fadeIn second" name="loginUs" placeholder="Usuario" required>
-          <input [(ngModel)]="contrasenia" type="password" id="password" class="fadeIn third" name="loginPas" placeholder="Contraseña" required>
-          <input (click)="login()" type="submit" class="fadeIn fourth" value="Ingresa">
-        </form>
-    
-        <!-- Remind Passowrd -->
-        <div id="formFooter">
-          <a class="underlineHover" href="salonDeJuegos/home">Crear cuenta</a>
-          <div *ngIf="fallo" class="alert">
-            <span class="closebtn" (click)="fallo=false" onclick="this.parentElement.style.display='none';">&times;</span>
-            Error, usuario inexistente o datos incorrectos.
-          </div>
+        </div>
+        <div *ngIf="fallo" class="alert">
+          <span class="closebtn" (click)="fallo=false" onclick="this.parentElement.style.display='none';">&times;</span>
+          Error, usuario inexistente o datos incorrectos.
         </div>
       </div>
     </div>
+  </div>
+</body>
 
   

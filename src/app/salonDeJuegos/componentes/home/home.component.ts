@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from 'src/app/ejercicio2/componentes/login/login.component';
 import { Usuario } from '../../clases/usuario.model';
+import { UsuarioService } from '../../servicios/usuario.service';
 
 @Component({
   selector: 'app-home',
@@ -8,23 +9,17 @@ import { Usuario } from '../../clases/usuario.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeGamesComponent implements OnInit {
-  constructor() { }
-
-  deslogueado:boolean = true;
-  lista:string = '';
-
-  test(){
-   this.lista = localStorage.getItem('usuario') || "";
-   if(this.lista!=null || this.lista!=undefined){
-      this.deslogueado = true;
+  constructor(private userService:UsuarioService) {
+    this.testing();
+    console.log("s");
    }
-   else{
-     this.deslogueado = false;
+   deslogueado:boolean = true;
+   testing(){
+      if(this.userService.usuario.mail !== ''){
+        this.deslogueado = false;
+      }
    }
-  }
-  
  ngOnInit(): void {
-   this.test();
  }
 
 }

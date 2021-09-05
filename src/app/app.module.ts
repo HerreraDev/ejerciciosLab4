@@ -16,18 +16,23 @@ import { ErrorComponent } from './ejercicio2/componentes/error/error.component';
 import { AngularFireModule } from '@angular/fire/compat';
 //import { AngularFireDatabaseModule } from '@angular/fire/compat/database/angular-fire-compat-database';
 import { environment } from '../environments/environment';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { QuienSoyComponent } from './salonDeJuegos/componentes/quien-soy/quien-soy.component';
 import { HomeGamesComponent} from './salonDeJuegos/componentes/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginGamesComponent } from './salonDeJuegos/componentes/login/login.component';
 import { HeaderComponent } from './salonDeJuegos/componentes/header/header.component';
+import {ErrorGamesComponent} from './salonDeJuegos/componentes/error/error.component';
+import { MenuPrincipalComponent } from './salonDeJuegos/componentes/menu-principal/menu-principal.component';
+import { FooterComponent } from './salonDeJuegos/componentes/footer/footer.component';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { RegistroComponent } from './salonDeJuegos/componentes/registro/registro.component';
 
 const rutas: Routes = [
   {
     path:'',
     pathMatch:'full',
-    redirectTo: 'home'
+    redirectTo: 'salonDeJuegos/login'
   },
   {
     path:'home',
@@ -62,7 +67,19 @@ const rutas: Routes = [
   {
     path:'salonDeJuegos/quienSoy',
     component: QuienSoyComponent
-  }
+  },
+  {
+    path:'salonDeJuegos/login',
+    component: LoginGamesComponent
+  },
+  {
+    path:'salonDeJuegos/registro',
+    component: RegistroComponent
+  },
+  {
+    path:'**',
+    component: ErrorGamesComponent
+  },
 ];
 
 @NgModule({
@@ -78,7 +95,10 @@ const rutas: Routes = [
     LoginGamesComponent,
     HomeGamesComponent,
     HeaderComponent,
-    QuienSoyComponent
+    QuienSoyComponent,
+    MenuPrincipalComponent,
+    FooterComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,6 +106,8 @@ const rutas: Routes = [
     FormsModule,
     RouterModule.forRoot(rutas),
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     BrowserAnimationsModule
   ],
   providers: [],

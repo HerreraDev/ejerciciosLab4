@@ -5,6 +5,7 @@ import { collection, getDocs } from '@firebase/firestore';
 import { QuerySnapshot } from '@firebase/firestore-types';
 import { observable, Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { UsuarioService } from '../../servicios/usuario.service';
 
 @Component({
   selector: 'app-login-games',
@@ -13,12 +14,15 @@ import { Router } from '@angular/router';
 })
 export class LoginGamesComponent implements OnInit {
 
-  constructor(private firestore: AngularFirestore, private router: Router) {
+  constructor(
+    private firestore: AngularFirestore, 
+    private router: Router,
+    private userService:UsuarioService) {
   }
 
   usuario='';
   contrasenia='';
-  student = new Usuario('','');
+  student = new Usuario('','','','');
   fallo:boolean = false;
 
   async login(){
@@ -26,11 +30,12 @@ export class LoginGamesComponent implements OnInit {
 
     var found=0;
     for(var i=0; i<usersArray.length;i++){
-      if(this.usuario == usersArray[i].nombre){
+      if(this.usuario == usersArray[i].mail){
         if(this.contrasenia == usersArray[i].clave){
           found = 1;
           this.fallo=false;
           this.succes(usersArray[i]);
+          this.log(usersArray[i]);
           break;
         }
       }
@@ -51,16 +56,40 @@ export class LoginGamesComponent implements OnInit {
      await userRef.get()
      .then(res => res.forEach(userDoc => {
        user = userDoc.data() as Usuario;
+       user.id = userDoc.id;
        usersArray.push(user);
      }));
-
      return usersArray;
   };
 
   succes(user:Usuario){
-      localStorage.setItem('usuario',user.nombre);
-      this.router.navigateByUrl('salonDeJuegos/quienSoy');
+      this.userService.usuario.id=user.id;
+      this.userService.usuario.nombre=user.nombre;
+      this.userService.usuario.clave=user.clave;
+      this.userService.usuario.mail=user.mail;
+      var modelo = this;
+      // this.firestore.collection('usuarios').doc(user.id).update({xs:'x'});
+      setTimeout(function(){
+        modelo.router.navigateByUrl('salonDeJuegos/home');
+      }, 2000);
     }
+
+  log(user:Usuario){
+    const newId = this.firestore.createId();
+    this.firestore.collection('logLogin').doc(newId).set({
+      usuario:user.id,
+      fechaHora: new Date()
+    });
+  }
+
+  loginAdmin(){
+    this.usuario = 'admin@mail.com';
+    this.contrasenia = 'admin';
+  }
+  loginTester(){
+    this.usuario = 'tester@mail.com';
+    this.contrasenia = 'tester';
+  }
   ngOnInit(): void {
   }
 

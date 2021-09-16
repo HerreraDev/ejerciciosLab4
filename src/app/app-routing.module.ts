@@ -48,6 +48,11 @@ const rutas: Routes = [
     component: MayorMenorComponent
   },
   {
+    path:'salonDeJuegos/chat',
+    component: ChatComponent
+  }
+  ,
+  {
     path:'**',
     component: ErrorGamesComponent
   },

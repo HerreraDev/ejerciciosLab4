@@ -81,6 +81,31 @@ body{
       flex: 1;
     }
   }
+
+  @media (max-width: 768px) {
+    #divAhorc{
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  
+    #divMayMen{
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
   
   .overflow-hidden { overflow: hidden; }
   
+  #divAhorc{
+    background-image: url('../../assets/ahorc.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  #divMayMen{
+    background-image: url('../../assets/maymen.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }

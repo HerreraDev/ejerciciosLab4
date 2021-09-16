@@ -1,0 +1,55 @@
+#body{
+    border: 2px solid black;  
+    width: 400px;
+    height: 400px;
+
+    
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    margin: auto;
+}
+
+#main{
+    height: 100vh;
+    background-image: url('../../assets/cartas-poker.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 60px;
+}
+
+.container{
+    border: 2px solid black;
+    height: 200px;
+    width: 100px;
+    text-align: center;
+    padding-top: 20px;
+    background-color: white;
+}
+
+#cartas{
+    background-color: green;
+}
+
+#controles{
+    background-color: royalblue;
+    height: 200px;
+}
+#controles > p{
+    font-size: x-large;
+    font-weight: 600;
+    padding-top: 20px;
+}
+#mayor{
+    height: 60px;
+    width: 50%;
+    background-color: green;
+}
+#menor{
+    height: 60px;
+    width: 50%;
+    background-color: red;
+}

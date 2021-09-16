@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginComponent } from 'src/app/ejercicio2/componentes/login/login.component';
 import { Usuario } from '../../clases/usuario.model';
 import { UsuarioService } from '../../servicios/usuario.service';
@@ -9,7 +10,7 @@ import { UsuarioService } from '../../servicios/usuario.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeGamesComponent implements OnInit {
-  constructor(private userService:UsuarioService) {
+  constructor(private userService:UsuarioService, private router:Router) {
     this.testing();
     console.log("s");
    }
@@ -18,6 +19,12 @@ export class HomeGamesComponent implements OnInit {
       if(this.userService.usuario.mail !== ''){
         this.deslogueado = false;
       }
+   }
+   irAhorcado(){
+     this.router.navigateByUrl('salonDeJuegos/juegos/ahorcado');
+   }
+   irMayMen(){
+    this.router.navigateByUrl('salonDeJuegos/juegos/mayMen');
    }
  ngOnInit(): void {
  }

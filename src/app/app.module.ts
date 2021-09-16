@@ -27,60 +27,10 @@ import { MenuPrincipalComponent } from './salonDeJuegos/componentes/menu-princip
 import { FooterComponent } from './salonDeJuegos/componentes/footer/footer.component';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { RegistroComponent } from './salonDeJuegos/componentes/registro/registro.component';
+import { ChatComponent } from './salonDeJuegos/componentes/chat/chat.component';
+import { JuegoAhorcadoComponent } from './salonDeJuegos/componentes/juego-ahorcado/juego-ahorcado.component';
+import { MayorMenorComponent } from './salonDeJuegos/componentes/mayor-menor/mayor-menor.component';
 
-const rutas: Routes = [
-  {
-    path:'',
-    pathMatch:'full',
-    redirectTo: 'salonDeJuegos/login'
-  },
-  {
-    path:'home',
-    component: HomeComponent
-  },
-  {
-    path:'ej1',
-    component: Ejercicio1Component
-  },
-  {
-    path:'ej2',
-    component: Ejercicio2Component
-  }
-  ,
-  {
-    path:'ej2/login',
-    component: LoginComponent
-  }
-  ,
-  {
-    path:'ej2/bienvenido',
-    component: BienvenidoComponent
-  },
-  {
-    path:'ej2/error',
-    component: ErrorComponent
-  },
-  {
-    path:'salonDeJuegos/home',
-    component: HomeGamesComponent
-  },
-  {
-    path:'salonDeJuegos/quienSoy',
-    component: QuienSoyComponent
-  },
-  {
-    path:'salonDeJuegos/login',
-    component: LoginGamesComponent
-  },
-  {
-    path:'salonDeJuegos/registro',
-    component: RegistroComponent
-  },
-  {
-    path:'**',
-    component: ErrorGamesComponent
-  },
-];
 
 @NgModule({
   declarations: [
@@ -99,12 +49,14 @@ const rutas: Routes = [
     MenuPrincipalComponent,
     FooterComponent,
     RegistroComponent,
+    ChatComponent,
+    JuegoAhorcadoComponent,
+    MayorMenorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(rutas),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,

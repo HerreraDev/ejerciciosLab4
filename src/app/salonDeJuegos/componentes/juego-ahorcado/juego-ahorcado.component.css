@@ -1,0 +1,65 @@
+#body{
+    border: 2px solid black;  
+    width: 400px;
+    height: 400px;
+
+    
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    margin: auto;
+}
+
+#main{
+    height: 100vh;
+    background-color: lightcyan;
+    padding: 60px;
+}
+
+#letrasError{
+    margin-top: 8px;
+    border: 2px solid black;
+    background-color: lightcoral;
+    height: 35px;
+    text-align: center;
+}
+
+#box{
+    background-color: lightgreen;
+    text-align: center;
+}
+
+#letra{
+    text-align: center;
+    width: 100%;
+    border: 0px;
+}
+
+.letraBtn{
+    margin: 2px;
+}
+
+#divLetras{
+    width: 100%;
+}
+
+p{
+    text-align: center;
+    font-size: x-large;
+    margin-top: 6px;
+}
+
+.btnReset{
+    width: 100%;
+    background-color: green;
+    color: white;
+    margin-top: 20px;
+    height: 60px;
+}
+
+hr{
+    border-top: 2px solid black;
+}

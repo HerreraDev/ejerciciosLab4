@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Slab');
+
+
+body{
+}
+.centered {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 50px;
+  font-family: 'Lato', sans-serif;
+  font-size: 40px;
+  color: black;
+  font-weight: bold;
+}
+ul li{
+    color: black;
+    font-size: 40px;
+}
+
+.lineas{
+    border: 2px solid white;
+}
+
+li > a{
+  color: black;
+  border: 2px solid red;
+  border-radius: 4px;
+}
+
+li > a:hover{
+  color: red;
+}
+
+

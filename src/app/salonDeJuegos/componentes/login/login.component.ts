@@ -68,10 +68,11 @@ export class LoginGamesComponent implements OnInit {
       this.userService.usuario.clave=user.clave;
       this.userService.usuario.mail=user.mail;
       var modelo = this;
-      // this.firestore.collection('usuarios').doc(user.id).update({xs:'x'});
+
+      sessionStorage.setItem('usuarioLogueado', JSON.stringify(user));
       setTimeout(function(){
-        modelo.router.navigateByUrl('salonDeJuegos/home');
-      }, 2000);
+        modelo.router.navigateByUrl('principal/home');
+      }, 1000);
     }
 
   log(user:Usuario){
@@ -91,6 +92,7 @@ export class LoginGamesComponent implements OnInit {
     this.contrasenia = 'tester';
   }
   ngOnInit(): void {
+    sessionStorage.clear();
   }
 
 }

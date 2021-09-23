@@ -60,7 +60,7 @@ import { MayorMenorComponent } from './salonDeJuegos/componentes/mayor-menor/may
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

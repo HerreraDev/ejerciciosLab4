@@ -21,10 +21,10 @@ export class HomeGamesComponent implements OnInit {
       }
    }
    irAhorcado(){
-     this.router.navigateByUrl('salonDeJuegos/juegos/ahorcado');
+     this.router.navigateByUrl('juegos/ahorcado');
    }
    irMayMen(){
-    this.router.navigateByUrl('salonDeJuegos/juegos/mayMen');
+    this.router.navigateByUrl('juegos/mayormenor');
    }
  ngOnInit(): void {
  }

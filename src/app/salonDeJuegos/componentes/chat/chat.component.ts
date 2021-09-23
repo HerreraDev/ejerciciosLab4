@@ -54,6 +54,10 @@ export class ChatComponent implements OnInit {
     pMensj.appendChild(br2);
     pMensj.appendChild(nodomsj);
 
+    if(this.ussuarioMostrar === this.userService.usuario.mail){
+      pMensj.setAttribute('style','text-align: right');
+    }
+
     document.getElementById('chats')?.append(pMensj);
   }
 
@@ -75,7 +79,7 @@ export class ChatComponent implements OnInit {
     var mensajes = await this.getMensajes();
 
     mensajes.forEach((msj:mensaje)=>{
-      this.ussuarioMostrar = msj.mensaje
+      this.ussuarioMostrar = msj.usuario
       this.fechaHoraMostrar = msj.fechaHoraMensaje;
       this.mensajeMostrar = msj.mensaje;
       this.appendMensaje();

@@ -12,15 +12,19 @@ export class HeaderComponent implements OnInit {
   constructor(private router:Router, private userService:UsuarioService) { }
 
   goJuegos(){
-    this.router.navigateByUrl('salonDeJuegos/home');
+    if(this.userService.usuario.mail === ''){
+      this.router.navigateByUrl('**');
+    }
+    else{
+      this.router.navigateByUrl('principal/home');
+    }
   }
   goChat(){
     if(this.userService.usuario.mail === ''){
-      this.router.navigateByUrl('salonDeJuegos/login');
-      alert("Debe estar logueado para ingresar al chat");
+      this.router.navigateByUrl('**');
     }
     else{
-      this.router.navigateByUrl('salonDeJuegos/chat');
+      this.router.navigateByUrl('principal/chat');
     }
   }
   ngOnInit(): void {

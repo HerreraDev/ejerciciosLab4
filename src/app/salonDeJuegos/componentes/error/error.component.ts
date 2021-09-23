@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-error',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorGamesComponent implements OnInit {
 
-  constructor() { }
-
+  
+  constructor( private router:Router) { }
+  irLogin(){
+    this.router.navigateByUrl("administracion/login");
+  }
   ngOnInit(): void {
   }
 

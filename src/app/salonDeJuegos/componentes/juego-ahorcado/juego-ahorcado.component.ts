@@ -13,7 +13,7 @@ export class JuegoAhorcadoComponent implements OnInit {
   }
 
   palabras = ['perro','gato','hombre','mujer','animal','auto','camioneta','barco','pez'];
-  pistas = ['Ladra...','Felino','Genero masc','Genero fem','Clasificacion de ser vivo','Vehiculo','Vehiculo','Vehiculo en el mar','Aniaml marino'];
+  pistas = ['Ladra...','Felino','Genero masc','Genero fem','Clasificacion de ser vivo','Vehiculo','Vehiculo','Vehiculo en el mar','Animal marino'];
   random = '';
   letras = '';
   cantOportunidades=0;
@@ -35,9 +35,8 @@ export class JuegoAhorcadoComponent implements OnInit {
         document.getElementById('letra')!.setAttribute('style','color:black');
         this.letras = "¡¡¡¡PERDISTE!!!!";
         setTimeout(()=>{ 
-          alert("PERDISTE");
           this.generarRandom(); 
-        }, 200);
+        }, 2000);
       }
 
       console.log("letra mal");
@@ -47,9 +46,8 @@ export class JuegoAhorcadoComponent implements OnInit {
       if(this.cantOportunidades === 0){
         this.letras = "¡¡¡¡PERDISTE!!!!";
         setTimeout(()=>{ 
-          alert("PERDISTE");
           this.generarRandom(); 
-        }, 200);
+        }, 2000);
       }
       else
       {
@@ -69,9 +67,8 @@ export class JuegoAhorcadoComponent implements OnInit {
           document.getElementById('letra')!.setAttribute('style','color:black');
           this.letras ="¡¡¡¡GANASTE!!!!";
           setTimeout(()=>{ 
-            alert("GANASTE");
             this.generarRandom(); 
-          }, 200);
+          }, 2000);
         }
       }
       console.log(this.exito);

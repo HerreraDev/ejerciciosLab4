@@ -30,6 +30,10 @@ import { RegistroComponent } from './salonDeJuegos/componentes/registro/registro
 import { ChatComponent } from './salonDeJuegos/componentes/chat/chat.component';
 import { JuegoAhorcadoComponent } from './salonDeJuegos/componentes/juego-ahorcado/juego-ahorcado.component';
 import { MayorMenorComponent } from './salonDeJuegos/componentes/mayor-menor/mayor-menor.component';
+import { InfoQuienSoyComponent } from './salonDeJuegos/componentes/info-quien-soy/info-quien-soy.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PreguntadosComponent } from './salonDeJuegos/componentes/preguntados/preguntados.component';
+import { CasaApuestasComponent } from './salonDeJuegos/componentes/casa-apuestas/casa-apuestas.component';
 
 
 @NgModule({
@@ -52,6 +56,9 @@ import { MayorMenorComponent } from './salonDeJuegos/componentes/mayor-menor/may
     ChatComponent,
     JuegoAhorcadoComponent,
     MayorMenorComponent,
+    InfoQuienSoyComponent,
+    PreguntadosComponent,
+    CasaApuestasComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +68,7 @@ import { MayorMenorComponent } from './salonDeJuegos/componentes/mayor-menor/may
     AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

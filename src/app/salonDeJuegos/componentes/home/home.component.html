@@ -23,19 +23,19 @@
       <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
         <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
           <div class="my-3 p-3">
-            <h2 class="display-5">Juego 3</h2>
-            <p class="lead">Descripcion del juego 3</p>
-            <input class="inputColors" type="button" value="Jugar">
+            <h2 class="display-5">Preguntados</h2>
+            <p class="lead">¡Acerta la respuesta correcta!</p>
+            <input class="inputColors" type="button" value="Jugar" (click)="irPreguntados()">
           </div>
-          <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+          <div id="divPreguntados" class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
         </div>
         <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
             <div class="my-3 py-3">
-            <h2 class="display-5">Juego 4</h2>
-            <p class="lead">Descripcion del juego 4</p>
-            <input class="inputColors" type="button" value="Jugar">
+            <h2 class="display-5">Casa de apuesta (juego propio)</h2>
+            <p class="lead">¡Aposta tus puntos para ganar mas!</p>
+            <input class="inputColors" type="button" value="Jugar" (click)="irCasaApuestas()">
           </div>
-          <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+          <div id="divCasaApuestas" class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
         </div>
        </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

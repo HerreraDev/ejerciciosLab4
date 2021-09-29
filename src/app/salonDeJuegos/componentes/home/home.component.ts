@@ -26,6 +26,12 @@ export class HomeGamesComponent implements OnInit {
    irMayMen(){
     this.router.navigateByUrl('juegos/mayormenor');
    }
+   irPreguntados(){
+    this.router.navigateByUrl('juegos/preguntados');
+  }
+  irCasaApuestas(){
+   this.router.navigateByUrl('juegos/casaApuestas');
+  }
  ngOnInit(): void {
  }
 

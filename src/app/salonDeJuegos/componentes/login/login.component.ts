@@ -6,6 +6,7 @@ import { QuerySnapshot } from '@firebase/firestore-types';
 import { observable, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../servicios/usuario.service';
+import { PreguntadosServiceService } from '../../servicios/preguntados-service.service';
 
 @Component({
   selector: 'app-login-games',
@@ -13,13 +14,20 @@ import { UsuarioService } from '../../servicios/usuario.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginGamesComponent implements OnInit {
-
+  
   constructor(
     private firestore: AngularFirestore, 
     private router: Router,
-    private userService:UsuarioService) {
+    private userService:UsuarioService,
+    private shService:PreguntadosServiceService) {
+      this.shService.obtenerPaises().subscribe((paises:any)=>
+      {
+        console.log(paises[1].flag);
+        this.paisX = paises[1];
+      }
+      , error=>{console.log(error)});
   }
-
+  paisX!:any;
   usuario='';
   contrasenia='';
   student = new Usuario('','','','');
@@ -27,7 +35,6 @@ export class LoginGamesComponent implements OnInit {
 
   async login(){
     var usersArray:Array<Usuario> = await this.getUsers();
-
     var found=0;
     for(var i=0; i<usersArray.length;i++){
       if(this.usuario == usersArray[i].mail){

@@ -27,6 +27,9 @@ export class HeaderComponent implements OnInit {
       this.router.navigateByUrl('principal/chat');
     }
   }
+  goQuienSoy(){
+    this.router.navigateByUrl('principal/infoCreador');
+  }
   ngOnInit(): void {
   }
 

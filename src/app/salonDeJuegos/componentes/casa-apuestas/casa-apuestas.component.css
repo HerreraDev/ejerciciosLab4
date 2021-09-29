@@ -1,0 +1,82 @@
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .main{
+    height: 100vh;
+    background-image: url('../../assets/casaapuestas.jpg');
+    position: relative;
+  }
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+    width: 500px;
+    height: 50%;
+    position: absolute;
+
+    top:0 ;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    margin: auto;
+    margin-top: 10%;
+  }
+
+#botones{
+    width: 100%;
+    margin-top: 6px;
+    background-color: burlywood;
+}
+
+#botones > button {
+  margin-top: 2px;
+  border: 2px solid black;
+  margin-left: 6px;
+}
+
+img{
+  border: 2px solid black;
+}
+
+#controles{
+  margin-top: 6px;
+  border: 4px solid green;
+  width: 100%;
+  
+}
+
+.punt{
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  font-size: large;
+  font-weight: bold;
+}
+
+label{
+  font-size: large;
+  font-weight: bold;
+}
+
+#terminar{
+  width: 100%;
+  background-color: lightgreen;
+  font-size: large;
+  font-weight: bold;
+}
+
+#apostar{
+    width: 100%;
+    background-color: violet;
+    font-size: large;
+    font-weight: bold;
+}

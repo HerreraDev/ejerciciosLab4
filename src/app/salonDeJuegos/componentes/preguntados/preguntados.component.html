@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="container">
+    <img [src]="paisesX[random].flag" alt="Avatar" style="width:100%">
+        <div id="botones">
+            <button (click)="validarRta(1)" id="rtaUno"></button>
+            <button (click)="validarRta(2)" id="rtaDos"></button>
+            <button (click)="validarRta(3)" id="rtaTres"></button>
+            <button (click)="validarRta(4)" id="rtaCuatro"></button>
+            <div id="controles">
+                <label for="punt">Puntos: </label>
+                <input type="text" name="punt" id="punt" readonly [(ngModel)]="puntos">
+                <button (click)="terminarJuego()" id="terminar">Terminar juego</button><br>
+            </div>
+        </div>
+    </div>
+  </div>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Usuario } from './ejercicio2/clases/usuario';
 
 //CLASE QUE TIENE LA LOGICA DE LA PAGINA HTML
 @Component({

@@ -4,13 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Ejercicio2Component } from './ejercicio2/ejercicio2.component';
-import { Ejercicio1Component } from './ejercicio1/ejercicio1.component';
+
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './ejercicio2/componentes/login/login.component';
-import { BienvenidoComponent } from './ejercicio2/componentes/bienvenido/bienvenido.component';
-import { ErrorComponent } from './ejercicio2/componentes/error/error.component';
 
 //FB
 import { AngularFireModule } from '@angular/fire/compat';
@@ -39,12 +34,6 @@ import { CasaApuestasComponent } from './salonDeJuegos/componentes/casa-apuestas
 @NgModule({
   declarations: [
     AppComponent,
-    Ejercicio2Component,
-    Ejercicio1Component,
-    HomeComponent,
-    LoginComponent,
-    BienvenidoComponent,
-    ErrorComponent,
     QuienSoyComponent,
     LoginGamesComponent,
     HomeGamesComponent,

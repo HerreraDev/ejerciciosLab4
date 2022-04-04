@@ -64,7 +64,7 @@ export class ChatComponent implements OnInit {
   async getMensajes(){
     var msj!:mensaje;
     var mensajes= new Array<mensaje>();
-    let mensajesRef = this.firestore.collection("mensajes").ref;
+    let mensajesRef = this.firestore.collection("mensajes").ref.orderBy('fechaHoraMensaje','asc');
 
      await mensajesRef.get()
      .then(res => res.forEach(userDoc => {

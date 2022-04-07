@@ -29,6 +29,7 @@ import { InfoQuienSoyComponent } from './salonDeJuegos/componentes/info-quien-so
 import { HttpClientModule } from '@angular/common/http';
 import { PreguntadosComponent } from './salonDeJuegos/componentes/preguntados/preguntados.component';
 import { CasaApuestasComponent } from './salonDeJuegos/componentes/casa-apuestas/casa-apuestas.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { CasaApuestasComponent } from './salonDeJuegos/componentes/casa-apuestas
     AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

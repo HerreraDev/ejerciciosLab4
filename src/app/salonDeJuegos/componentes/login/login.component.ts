@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { PreguntadosServiceService } from '../../servicios/preguntados-service.service';
 
+
 @Component({
   selector: 'app-login-games',
   templateUrl: './login.component.html',
@@ -32,8 +33,10 @@ export class LoginGamesComponent implements OnInit {
   contrasenia='';
   student = new Usuario('','','','');
   fallo:boolean = false;
+  cargando: boolean = false;
 
   async login(){
+    this.cargando = true;
     var usersArray:Array<Usuario> = await this.getUsers();
     var found=0;
     for(var i=0; i<usersArray.length;i++){
@@ -50,6 +53,7 @@ export class LoginGamesComponent implements OnInit {
     if(found==0){
       this.fallo=true;
     }
+    this.cargando = false;
   }
  
     

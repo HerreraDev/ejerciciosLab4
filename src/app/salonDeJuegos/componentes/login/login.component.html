@@ -20,6 +20,9 @@
         <div>
 
         </div>
+        <div *ngIf="cargando" style="display: flex; justify-content: center; margin-top: 10px;">
+          <mat-spinner color="primary"></mat-spinner>
+        </div>
         <div *ngIf="fallo" class="alert">
           <span class="closebtn" (click)="fallo=false" onclick="this.parentElement.style.display='none';">&times;</span>
           Error, usuario inexistente o datos incorrectos.

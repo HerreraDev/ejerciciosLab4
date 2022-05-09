@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GuardarPuntosService } from '../../servicios/guardar-puntos.service';
+import { UsuarioService } from '../../servicios/usuario.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-mayor-menor',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MayorMenorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private guardarPuntosService:GuardarPuntosService, private usuarioService: UsuarioService, private toastrService: ToastrService) { }
   numAleatorio!:number;
   puntos = 0;
 
@@ -46,4 +49,10 @@ export class MayorMenorComponent implements OnInit {
     this.inicioJuego();
   }
 
+  terminarJuego(){
+    this.guardarPuntosService.puntosMayorMenor(this.usuarioService.usuario.mail,this.puntos);
+    this.toastrService.success('Sus puntos de esta partida han sido guardados', 'Puntos guardados')
+    this.inicioJuego();
+    this.puntos=0;
+  }
 }

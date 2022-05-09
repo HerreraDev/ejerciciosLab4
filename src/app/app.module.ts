@@ -31,6 +31,7 @@ import { PreguntadosComponent } from './salonDeJuegos/componentes/preguntados/pr
 import { CasaApuestasComponent } from './salonDeJuegos/componentes/casa-apuestas/casa-apuestas.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AngularFirestoreModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

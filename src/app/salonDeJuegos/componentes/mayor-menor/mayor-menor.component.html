@@ -2,6 +2,8 @@
     <div id="body">
     
         <div id="cartas">
+            <h2 class="txtExplicacion underline">Explicación: </h2>
+            <h3 class="txtExplicacion">Al adivinar si la siguiente carta es menor o mayor, usted gana 3 puntos. De lo contrario pierde 1 punto.</h3>
             <div class="container">
                 <p>Carta</p>
                 <p id="nmroAleatorio" style="width:100%; font-size: large;">{{numAleatorio}}</p>
@@ -14,6 +16,7 @@
             <button id="mayor" (click)="eligio('mayor')" class="btnReset"> Mayor </button>
             <button id="menor" (click)="eligio('menor')" class="btnReset"> Menor </button>
             <p>Puntuación:{{puntos}}</p>
+            <button id="terminarJuego" (click)="terminarJuego()" class="btnReset"> Finalizar juego </button>
         </div>
 
 

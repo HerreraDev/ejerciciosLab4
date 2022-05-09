@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { GuardarPuntosService } from '../../servicios/guardar-puntos.service';
+import { UsuarioService } from '../../servicios/usuario.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-casa-apuestas',
   templateUrl: './casa-apuestas.component.html',
@@ -7,8 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CasaApuestasComponent implements OnInit {
 
-  constructor() { 
-  }
+  constructor(private guardarPuntosService:GuardarPuntosService, private usuarioService: UsuarioService, private toastrService: ToastrService) {}
   puntosActuales:number = 100;
   montoAcumulado:number = 0;
   probabilidadPerder:string = "0%";
@@ -44,6 +45,9 @@ export class CasaApuestasComponent implements OnInit {
   }
 
   retirarApuesta(){
+    this.guardarPuntosService.puntosCasaApuestas(this.usuarioService.usuario.mail,this.montoAcumulado);
+    this.toastrService.success('Sus puntos de esta partida han sido guardados', 'Puntos guardados')
+
     this.puntosActuales += this.montoAcumulado;
     this.montoAcumulado = 0;
     this.apuesta = 0;
@@ -56,6 +60,7 @@ export class CasaApuestasComponent implements OnInit {
   }
 
   apostar(){
+
     document.getElementById("apuesta")!.setAttribute('readonly', 'true');
     this.puntosActuales -= this.apuesta;
   }

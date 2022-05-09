@@ -53,3 +53,24 @@
     width: 50%;
     background-color: red;
 }
+#terminarJuego{
+    height: 60px;
+    width: 100%;
+    background-color: yellow;
+}
+.btnReset{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.txtExplicacion{
+    margin: 0rem 1rem 0rem 1rem;
+    font-weight: bold;
+}
+.underline{
+    text-decoration: underline;
+}
+
+hr{
+    border: 0;
+    border-top: 28px solid black;
+}

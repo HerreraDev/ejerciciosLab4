@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PreguntadosServiceService } from '../../servicios/preguntados-service.service';
-
+import { GuardarPuntosService } from '../../servicios/guardar-puntos.service';
+import { UsuarioService } from '../../servicios/usuario.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-preguntados',
   templateUrl: './preguntados.component.html',
@@ -8,7 +10,7 @@ import { PreguntadosServiceService } from '../../servicios/preguntados-service.s
 })
 export class PreguntadosComponent implements OnInit {
 
-  constructor(private shService:PreguntadosServiceService) {
+  constructor(private shService:PreguntadosServiceService,private guardarPuntosService:GuardarPuntosService, private usuarioService: UsuarioService, private toastrService: ToastrService) {
 
    }
    paisX!:any;
@@ -87,8 +89,11 @@ export class PreguntadosComponent implements OnInit {
    }
 
    terminarJuego(){
+    this.guardarPuntosService.puntosPreguntados(this.usuarioService.usuario.mail,this.puntos);
+    this.toastrService.success('Sus puntos de esta partida han sido guardados', 'Puntos guardados')
      this.getPaises();
      this.puntos = 0;
+
    }
 
   ngOnInit(): void {

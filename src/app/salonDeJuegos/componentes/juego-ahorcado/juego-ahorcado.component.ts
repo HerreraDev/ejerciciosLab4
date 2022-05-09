@@ -1,5 +1,8 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../../servicios/usuario.service';
+import { GuardarPuntosService } from '../../servicios/guardar-puntos.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-juego-ahorcado',
@@ -8,10 +11,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JuegoAhorcadoComponent implements OnInit {
 
-
-  constructor() {
-  }
-
   palabras = ['perro','gato','hombre','mujer','animal','auto','camioneta','barco','pez'];
   pistas = ['Ladra...','Felino','Genero masc','Genero fem','Clasificacion de ser vivo','Vehiculo','Vehiculo','Vehiculo en el mar','Animal marino'];
   random = '';
@@ -19,6 +18,11 @@ export class JuegoAhorcadoComponent implements OnInit {
   cantOportunidades=0;
   exito=0;
   pista='';
+  mailDeljugador='';
+
+  constructor(private userService:UsuarioService, private guadarPuntosService: GuardarPuntosService, private toastr: ToastrService) {
+    this.mailDeljugador = userService.usuario.mail;
+  }
 
   setLetter(x:string){
     this.random = this.random.toUpperCase();
@@ -35,6 +39,9 @@ export class JuegoAhorcadoComponent implements OnInit {
         document.getElementById('letra')!.setAttribute('style','color:black');
         this.letras = "¡¡¡¡PERDISTE!!!!";
         setTimeout(()=>{ 
+          //guardo puntos
+          this.toastr.success('Tus puntos de esta partida de ahorcados fueron guardados con exito', 'Puntuación guardada');
+          this.guadarPuntosService.puntosAhorcado(this.mailDeljugador,'No', this.random.length + 3);
           this.generarRandom(); 
         }, 2000);
       }
@@ -46,6 +53,9 @@ export class JuegoAhorcadoComponent implements OnInit {
       if(this.cantOportunidades === 0){
         this.letras = "¡¡¡¡PERDISTE!!!!";
         setTimeout(()=>{ 
+          //guardo puntos
+          this.toastr.success('Tus puntos de esta partida de ahorcados fueron guardados con exito', 'Puntuación guardada');
+          this.guadarPuntosService.puntosAhorcado(this.mailDeljugador,'No', this.random.length + 3);
           this.generarRandom(); 
         }, 2000);
       }
@@ -67,6 +77,10 @@ export class JuegoAhorcadoComponent implements OnInit {
           document.getElementById('letra')!.setAttribute('style','color:black');
           this.letras ="¡¡¡¡GANASTE!!!!";
           setTimeout(()=>{ 
+            //guardo puntos
+            this.toastr.success('Tus puntos de esta partida de ahorcados fueron guardados con exito', 'Puntuación guardada');
+            let intentosUsados = (this.random.length + 3) - (this.cantOportunidades - this.exito);
+            this.guadarPuntosService.puntosAhorcado(this.mailDeljugador,'Si', intentosUsados);
             this.generarRandom(); 
           }, 2000);
         }

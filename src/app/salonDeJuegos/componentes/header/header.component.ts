@@ -30,6 +30,9 @@ export class HeaderComponent implements OnInit {
   goQuienSoy(){
     this.router.navigateByUrl('principal/infoCreador');
   }
+  goResultados(){
+    this.router.navigateByUrl('juegos/resultados');
+  }
   ngOnInit(): void {
   }
 

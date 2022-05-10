@@ -1,0 +1,72 @@
+<div class="container">
+    <p class="text-center font-weight-bold mt-2 h1">¡Resultados de los juegos!</p>
+
+    <div>
+        <hr>
+        <p class="h4">Juego: Ahorcado</p>
+        <div class="d-flex resultados">
+            <div class="card cardStyle" *ngFor="let resultado of this.resultadoService.resultadosAhorc">
+                <div class="card-body">
+                    <h5 class="titulo">Usuario: {{resultado.usuario}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">¿Ganó? {{resultado.gano}}</li>
+                    <li class="list-group-item">Intentos usados: {{resultado.intentosUsados}}</li>
+                    <li class="list-group-item">Fecha y hora: {{resultado.fechaHora}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <hr>
+        <p class="h4">Juego: Mayor y Menor</p>
+        <div class="d-flex resultados">
+            <div class="card cardStyle" *ngFor="let resultado of this.resultadoService.resultadosMayorMenor">
+                <div class="card-body">
+                    <h5 class="titulo">Usuario: {{resultado.usuario}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Puntos: {{resultado.puntos}}</li>
+                    <li class="list-group-item">Fecha y hora: {{resultado.fechaHora}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <hr>
+        <p class="h4">Juego: Preguntados</p>
+        <div class="d-flex resultados">
+            <div class="card cardStyle" *ngFor="let resultado of this.resultadoService.resultadosPreguntados">
+                <div class="card-body">
+                    <h5 class="titulo">Usuario: {{resultado.usuario}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Puntos: {{resultado.puntos}}</li>
+                    <li class="list-group-item">Fecha y hora: {{resultado.fechaHora}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-2">
+        <hr>
+        <p class="h4">Juego: Casa de Apuestas</p>
+        <div class="d-flex resultados">
+            <div class="card cardStyle" *ngFor="let resultado of this.resultadoService.resultadosCasaApuestas">
+                <div class="card-body">
+                    <h5 class="titulo">Usuario: {{resultado.usuario}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Monto ganado: {{resultado.montoGanado}}</li>
+                    <li class="list-group-item">Fecha y hora: {{resultado.fechaHora}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

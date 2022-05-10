@@ -5,12 +5,14 @@ import { JuegoAhorcadoComponent } from 'src/app/salonDeJuegos/componentes/juego-
 import { MayorMenorComponent } from 'src/app/salonDeJuegos/componentes/mayor-menor/mayor-menor.component';
 import { PreguntadosComponent } from 'src/app/salonDeJuegos/componentes/preguntados/preguntados.component';
 import { JuegosComponent } from './juegos.component';
+import { ResultadosComponent } from '../../salonDeJuegos/componentes/resultados/resultados.component';
 
 const routes: Routes = [
   { path: 'mayormenor', component: MayorMenorComponent },
   { path: 'ahorcado', component: JuegoAhorcadoComponent},
   { path: 'preguntados', component:PreguntadosComponent},
-  { path: 'casaApuestas', component:CasaApuestasComponent}
+  { path: 'casaApuestas', component:CasaApuestasComponent},
+  { path: 'resultados', component:ResultadosComponent},
 ];
 
 @NgModule({

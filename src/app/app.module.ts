@@ -40,6 +40,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule} from '@angular/material/radio';
+import { ResultadosComponent } from './salonDeJuegos/componentes/resultados/resultados.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { MatRadioModule} from '@angular/material/radio';
     PreguntadosComponent,
     CasaApuestasComponent,
     EncuestaComponent,
+    ResultadosComponent,
   ],
   imports: [
     BrowserModule,

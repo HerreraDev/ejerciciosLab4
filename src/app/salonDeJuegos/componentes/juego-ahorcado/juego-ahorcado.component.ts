@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { GuardarPuntosService } from '../../servicios/guardar-puntos.service';
 import { ToastrService } from 'ngx-toastr';
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { EncuestaComponent } from '../encuesta/encuesta.component';
 
 @Component({
   selector: 'app-juego-ahorcado',
@@ -20,7 +22,11 @@ export class JuegoAhorcadoComponent implements OnInit {
   pista='';
   mailDeljugador='';
 
-  constructor(private userService:UsuarioService, private guadarPuntosService: GuardarPuntosService, private toastr: ToastrService) {
+  constructor(
+    private userService:UsuarioService, 
+    private guadarPuntosService: GuardarPuntosService, 
+    private toastr: ToastrService,
+    private matDialog: MatDialog) {
     this.mailDeljugador = userService.usuario.mail;
   }
 
@@ -43,6 +49,7 @@ export class JuegoAhorcadoComponent implements OnInit {
           this.toastr.success('Tus puntos de esta partida de ahorcados fueron guardados con exito', 'Puntuación guardada');
           this.guadarPuntosService.puntosAhorcado(this.mailDeljugador,'No', this.random.length + 3);
           this.generarRandom(); 
+          this.abrirModal();
         }, 2000);
       }
 
@@ -57,6 +64,7 @@ export class JuegoAhorcadoComponent implements OnInit {
           this.toastr.success('Tus puntos de esta partida de ahorcados fueron guardados con exito', 'Puntuación guardada');
           this.guadarPuntosService.puntosAhorcado(this.mailDeljugador,'No', this.random.length + 3);
           this.generarRandom(); 
+          this.abrirModal();
         }, 2000);
       }
       else
@@ -82,6 +90,7 @@ export class JuegoAhorcadoComponent implements OnInit {
             let intentosUsados = (this.random.length + 3) - (this.cantOportunidades - this.exito);
             this.guadarPuntosService.puntosAhorcado(this.mailDeljugador,'Si', intentosUsados);
             this.generarRandom(); 
+            this.abrirModal();
           }, 2000);
         }
       }
@@ -111,10 +120,25 @@ export class JuegoAhorcadoComponent implements OnInit {
 
   resetGame(){
     this.generarRandom();
+    // this.abrirModal();
   }
 
   ngOnInit(): void {
     this.generarRandom();
+  }
+
+  abrirModal(){
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      usuario: this.userService.usuario.mail,
+      title: 'Encuesta juego Ahorcado',
+      juego: 'Ahorcado'
+    };
+    this.matDialog.open(EncuestaComponent, dialogConfig);
   }
 
 }

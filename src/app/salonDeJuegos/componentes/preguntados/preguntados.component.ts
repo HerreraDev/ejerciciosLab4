@@ -3,6 +3,9 @@ import { PreguntadosServiceService } from '../../servicios/preguntados-service.s
 import { GuardarPuntosService } from '../../servicios/guardar-puntos.service';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { ToastrService } from 'ngx-toastr';
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { EncuestaComponent } from '../encuesta/encuesta.component';
+
 @Component({
   selector: 'app-preguntados',
   templateUrl: './preguntados.component.html',
@@ -10,8 +13,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PreguntadosComponent implements OnInit {
 
-  constructor(private shService:PreguntadosServiceService,private guardarPuntosService:GuardarPuntosService, private usuarioService: UsuarioService, private toastrService: ToastrService) {
-
+  constructor(
+    private shService:PreguntadosServiceService,
+    private guardarPuntosService:GuardarPuntosService,
+    private usuarioService: UsuarioService,
+    private toastrService: ToastrService,
+    private matDialog: MatDialog) {
    }
    paisX!:any;
    paisesX:any = [];
@@ -91,13 +98,27 @@ export class PreguntadosComponent implements OnInit {
    terminarJuego(){
     this.guardarPuntosService.puntosPreguntados(this.usuarioService.usuario.mail,this.puntos);
     this.toastrService.success('Sus puntos de esta partida han sido guardados', 'Puntos guardados')
-     this.getPaises();
-     this.puntos = 0;
-
+    this.getPaises();
+    this.puntos = 0;
+    this.abrirModal();
    }
 
   ngOnInit(): void {
     this.getPaises();
+  }
+
+  abrirModal(){
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      usuario: this.usuarioService.usuario.mail,
+      title: 'Encuesta juego Preguntados',
+      juego: 'Preguntados'
+    };
+    this.matDialog.open(EncuestaComponent, dialogConfig);
   }
 
 }

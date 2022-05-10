@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { GuardarPuntosService } from '../../servicios/guardar-puntos.service';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { ToastrService } from 'ngx-toastr';
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { EncuestaComponent } from '../encuesta/encuesta.component';
+
 @Component({
   selector: 'app-casa-apuestas',
   templateUrl: './casa-apuestas.component.html',
@@ -9,7 +12,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CasaApuestasComponent implements OnInit {
 
-  constructor(private guardarPuntosService:GuardarPuntosService, private usuarioService: UsuarioService, private toastrService: ToastrService) {}
+  constructor(
+    private guardarPuntosService:GuardarPuntosService, 
+    private usuarioService: UsuarioService, 
+    private toastrService: ToastrService,
+    private matDialog: MatDialog) {}
+
   puntosActuales:number = 100;
   montoAcumulado:number = 0;
   probabilidadPerder:string = "0%";
@@ -47,7 +55,7 @@ export class CasaApuestasComponent implements OnInit {
   retirarApuesta(){
     this.guardarPuntosService.puntosCasaApuestas(this.usuarioService.usuario.mail,this.montoAcumulado);
     this.toastrService.success('Sus puntos de esta partida han sido guardados', 'Puntos guardados')
-
+    this.abrirModal();
     this.puntosActuales += this.montoAcumulado;
     this.montoAcumulado = 0;
     this.apuesta = 0;
@@ -67,6 +75,20 @@ export class CasaApuestasComponent implements OnInit {
 
   ngOnInit(): void {
     this.probabilidadPerder = this.probPerder + "%";
+  }
+
+  abrirModal(){
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      usuario: this.usuarioService.usuario.mail,
+      title: 'Encuesta juego Casa de Apuestas',
+      juego: 'Casa de Apuestas'
+    };
+    this.matDialog.open(EncuestaComponent, dialogConfig);
   }
 
 }

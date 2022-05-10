@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +33,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { ToastrModule } from 'ngx-toastr';
 
+import {MatDialogModule} from "@angular/material/dialog";
+
+import { EncuestaComponent } from './salonDeJuegos/componentes/encuesta/encuesta.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,11 +57,13 @@ import { ToastrModule } from 'ngx-toastr';
     InfoQuienSoyComponent,
     PreguntadosComponent,
     CasaApuestasComponent,
+    EncuestaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -62,8 +71,14 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     MatProgressSpinnerModule,
     ToastrModule.forRoot(),
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[EncuestaComponent]
 })
 export class AppModule { }

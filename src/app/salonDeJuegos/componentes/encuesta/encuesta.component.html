@@ -1,0 +1,93 @@
+<h2 mat-dialog-title>{{titulo}}</h2>
+
+<mat-dialog-content [formGroup]="form">
+
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombre" formControlName="nombre">
+        </mat-form-field>
+        <ng-container  *ngFor="let error of error_msg.nombre">
+            <div style="color: red; font-size: small;" *ngIf="form.get('nombre')?.hasError(error.type) && (form.get('nombre')?.dirty || form.get('nombre')?.touched)">
+              {{ error.message }}
+            </div>
+        </ng-container>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput placeholder="Apellido" formControlName="apellido">
+        </mat-form-field>
+        <ng-container  *ngFor="let error of error_msg.apellido">
+            <div style="color: red; font-size: small;" *ngIf="form.get('apellido')?.hasError(error.type) && (form.get('apellido')?.dirty || form.get('apellido')?.touched)">
+              {{ error.message }}
+            </div>
+        </ng-container>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Edad</mat-label>
+            <input matInput placeholder="Edad" formControlName="edad">
+        </mat-form-field>
+        <ng-container  *ngFor="let error of error_msg.edad">
+            <div style="color: red; font-size: small;" *ngIf="form.get('edad')?.hasError(error.type) && (form.get('edad')?.dirty || form.get('edad')?.touched)">
+              {{ error.message }}
+            </div>
+        </ng-container>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Telefono</mat-label>
+            <input matInput placeholder="Telefono" formControlName="telefono">
+        </mat-form-field>
+        <ng-container  *ngFor="let error of error_msg.telefono">
+            <div style="color: red; font-size: small;" *ngIf="form.get('telefono')?.hasError(error.type) && (form.get('telefono')?.dirty || form.get('telefono')?.touched)">
+              {{ error.message }}
+            </div>
+        </ng-container>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+        <mat-label>¿Volverias a jugar?</mat-label>
+        <mat-select formControlName="reJugar">
+            <mat-option value="si">Si</mat-option>
+            <mat-option value="no">No</mat-option>
+        </mat-select>
+        </mat-form-field>
+        <ng-container  *ngFor="let error of error_msg.reJugar">
+            <div style="color: red; font-size: small;" *ngIf="form.get('reJugar')?.hasError(error.type) && (form.get('reJugar')?.dirty || form.get('reJugar')?.touched)">
+              {{ error.message }}
+            </div>
+        </ng-container>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>¿Nos dejas tu opinión?</mat-label>
+            <textarea matInput formControlName="opinion"></textarea>
+        </mat-form-field>
+        <ng-container  *ngFor="let error of error_msg.opinion">
+            <div style="color: red; font-size: small;" *ngIf="form.get('opinion')?.hasError(error.type) && (form.get('opinion')?.dirty || form.get('opinion')?.touched)">
+              {{ error.message }}
+            </div>
+        </ng-container>
+    </p>
+    <p>
+        <mat-radio-group formControlName="estrellas">
+            <mat-label>¿Cuantas estrellas le das al juego?: </mat-label><br>
+            <mat-radio-button value="1">1</mat-radio-button>
+            <mat-radio-button value="2">2</mat-radio-button>
+            <mat-radio-button value="3">3</mat-radio-button>
+            <mat-radio-button value="4">4</mat-radio-button>
+        </mat-radio-group>
+        <ng-container  *ngFor="let error of error_msg.estrellas">
+            <div style="color: red; font-size: small;" *ngIf="form.get('estrellas')?.hasError(error.type) && (form.get('estrellas')?.dirty || form.get('estrellas')?.touched)">
+              {{ error.message }}
+            </div>
+        </ng-container>
+    </p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Omitir</button>
+    <button class="mat-raised-button mat-primary" [disabled]="!form.valid" (click)="save()">Enviar</button>
+</mat-dialog-actions>

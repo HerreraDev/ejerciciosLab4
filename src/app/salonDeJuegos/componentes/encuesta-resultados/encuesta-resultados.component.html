@@ -1,0 +1,95 @@
+<div class="container">
+    <p class="text-center font-weight-bold mt-2 h1">¡Resultados de las encuestas!</p>
+    <p class="text-center font-weight-bold mt-2 h4">Recuerda que estas encuestas son tomadas cada vez que se finaliza la partida de alguno de los juegos</p>
+    <div>
+        <hr>
+        <p class="h4">Juego: Ahorcado</p>
+        <div class="d-flex resultados">
+            <div class="card cardStyle" *ngFor="let resultado of this.resultadoService.resultadosEncuestasAhorcado">
+                <div class="card-body">
+                    <h5 class="titulo">Usuario: {{resultado.usuario}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Nombre: {{resultado.nombre}}</li>
+                    <li class="list-group-item">Apellido: {{resultado.apellido}}</li>
+                    <li class="list-group-item">Edad: {{resultado.edad}}</li>
+                    <li class="list-group-item">Telefono: {{resultado.telefono}}</li>
+                    <li class="list-group-item">¿Volverias a jugar?: {{resultado.reJugar}}</li>
+                    <li class="list-group-item">Opinion: {{resultado.opinion}}</li>
+                    <li class="list-group-item">Estrellas: {{resultado.estrellas}}</li>
+                    <li class="list-group-item">Fecha y hora: {{resultado.fechaHora}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <hr>
+        <p class="h4">Juego: Mayor y Menor</p>
+        <div class="d-flex resultados">
+            <div class="card cardStyle" *ngFor="let resultado of this.resultadoService.resultadosEncuestasMayorMenor">
+                <div class="card-body">
+                    <h5 class="titulo">Usuario: {{resultado.usuario}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Nombre: {{resultado.nombre}}</li>
+                    <li class="list-group-item">Apellido: {{resultado.apellido}}</li>
+                    <li class="list-group-item">Edad: {{resultado.edad}}</li>
+                    <li class="list-group-item">Telefono: {{resultado.telefono}}</li>
+                    <li class="list-group-item">¿Volverias a jugar?: {{resultado.reJugar}}</li>
+                    <li class="list-group-item">Opinion: {{resultado.opinion}}</li>
+                    <li class="list-group-item">Estrellas: {{resultado.estrellas}}</li>
+                    <li class="list-group-item">Fecha y hora: {{resultado.fechaHora}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <hr>
+        <p class="h4">Juego: Preguntados</p>
+        <div class="d-flex resultados">
+            <div class="card cardStyle" *ngFor="let resultado of this.resultadoService.resultadosEncuestasPreguntados">
+                <div class="card-body">
+                    <h5 class="titulo">Usuario: {{resultado.usuario}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Nombre: {{resultado.nombre}}</li>
+                    <li class="list-group-item">Apellido: {{resultado.apellido}}</li>
+                    <li class="list-group-item">Edad: {{resultado.edad}}</li>
+                    <li class="list-group-item">Telefono: {{resultado.telefono}}</li>
+                    <li class="list-group-item">¿Volverias a jugar?: {{resultado.reJugar}}</li>
+                    <li class="list-group-item">Opinion: {{resultado.opinion}}</li>
+                    <li class="list-group-item">Estrellas: {{resultado.estrellas}}</li>
+                    <li class="list-group-item">Fecha y hora: {{resultado.fechaHora}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-2">
+        <hr>
+        <p class="h4">Juego: Casa de Apuestas</p>
+        <div class="d-flex resultados">
+            <div class="card cardStyle" *ngFor="let resultado of this.resultadoService.resultadosEncuestasAhorcadoCasaDeApuestas">
+                <div class="card-body">
+                    <h5 class="titulo">Usuario: {{resultado.usuario}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Nombre: {{resultado.nombre}}</li>
+                    <li class="list-group-item">Apellido: {{resultado.apellido}}</li>
+                    <li class="list-group-item">Edad: {{resultado.edad}}</li>
+                    <li class="list-group-item">Telefono: {{resultado.telefono}}</li>
+                    <li class="list-group-item">¿Volverias a jugar?: {{resultado.reJugar}}</li>
+                    <li class="list-group-item">Opinion: {{resultado.opinion}}</li>
+                    <li class="list-group-item">Estrellas: {{resultado.estrellas}}</li>
+                    <li class="list-group-item">Fecha y hora: {{resultado.fechaHora}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

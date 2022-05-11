@@ -41,6 +41,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule} from '@angular/material/radio';
 import { ResultadosComponent } from './salonDeJuegos/componentes/resultados/resultados.component';
+import { EncuestaResultadosComponent } from './salonDeJuegos/componentes/encuesta-resultados/encuesta-resultados.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { ResultadosComponent } from './salonDeJuegos/componentes/resultados/resu
     CasaApuestasComponent,
     EncuestaComponent,
     ResultadosComponent,
+    EncuestaResultadosComponent,
   ],
   imports: [
     BrowserModule,

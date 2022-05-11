@@ -33,6 +33,9 @@ export class HeaderComponent implements OnInit {
   goResultados(){
     this.router.navigateByUrl('juegos/resultados');
   }
+  goEncuestas(){
+    this.router.navigateByUrl('juegos/encuestas-resultados');
+  }
   ngOnInit(): void {
   }
 

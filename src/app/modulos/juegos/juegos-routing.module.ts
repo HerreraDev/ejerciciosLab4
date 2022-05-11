@@ -6,6 +6,8 @@ import { MayorMenorComponent } from 'src/app/salonDeJuegos/componentes/mayor-men
 import { PreguntadosComponent } from 'src/app/salonDeJuegos/componentes/preguntados/preguntados.component';
 import { JuegosComponent } from './juegos.component';
 import { ResultadosComponent } from '../../salonDeJuegos/componentes/resultados/resultados.component';
+import { EncuestaResultadosComponent } from '../../salonDeJuegos/componentes/encuesta-resultados/encuesta-resultados.component';
+import { AdminGuardGuard } from '../../salonDeJuegos/guards/admin-guard.guard';
 
 const routes: Routes = [
   { path: 'mayormenor', component: MayorMenorComponent },
@@ -13,6 +15,7 @@ const routes: Routes = [
   { path: 'preguntados', component:PreguntadosComponent},
   { path: 'casaApuestas', component:CasaApuestasComponent},
   { path: 'resultados', component:ResultadosComponent},
+  { path: 'encuestas-resultados', component:EncuestaResultadosComponent, canActivate:[AdminGuardGuard]},
 ];
 
 @NgModule({
